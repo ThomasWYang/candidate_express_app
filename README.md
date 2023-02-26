@@ -7,7 +7,7 @@ When the Api started, it will preloaded with 4 Candidates with predefined names 
 ## Install via Git
 
 1. Make sure Node.js 18+ (https://nodejs.org/en/) and MongoDB (https://www.mongodb.com/try/download/community) is installed in the local environment.
-When install MongoDB, Select Run the service as Network Service user (Default) and Installed MongoDB as a Windows Service
+When install MongoDB, Select "Run the service as Network Service user (Default)" and "Installed MongoDB as a Windows Service".
 Use following command in command line to check if node is installed.
 ```sh
 node -v
