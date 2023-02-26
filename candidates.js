@@ -5,10 +5,14 @@ import { ObjectId } from "mongodb";
 const router = express.Router();
 let index = 5;
 
-
 router.get("/", async (req, res) => {
   let collection = await db.collection("candidates");
-  let results = await collection.find({}).limit(50).toArray();
+  let query = {
+    ...(req.query.fname ? { fname: req.query.fname } : {}),
+    ...(req.query.lname ? { lname: req.query.lname } : {}),
+    ...(req.query.email ? { email: req.query.email } : {}),
+  };
+  let results = await collection.find(query).limit(50).toArray();
 
   res.send(results).status(200);
 });
@@ -32,7 +36,7 @@ router.post("/", async (req, res) => {
     score: req.body.score,
   };
   let result = await collection.insertOne(newDocument);
-  res.send(result).status(204);
+  res.send(newDocument).status(204);
 });
 
 router.put("/:id", async (req, res) => {
