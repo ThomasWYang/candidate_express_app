@@ -1,0 +1,13 @@
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+  app:
+    image: thomasy2022/candidate_express_app
+    environment: 
+      - DATABASE_CONNECTIONSTRING=mongodb://mongo:27017
+    depends_on:
+      - mongo
+    ports:
+      - 4000:4000
