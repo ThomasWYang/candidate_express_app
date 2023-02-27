@@ -1,8 +1,11 @@
 services:
   mongo:
     image: mongo
-    ports:
-      - 27017:27017
+    restart: always
+    volumes:
+      - mongoDB:/data/db
+    networks:
+      - webapp-network
   app:
     image: thomasy2022/candidate_express_app
     environment: 
@@ -11,3 +14,10 @@ services:
       - mongo
     ports:
       - 4000:4000
+    networks:
+      - webapp-network
+networks:
+  webapp-network:
+    driver: bridge      
+volumes:
+  mongoDB: {}
