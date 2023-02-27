@@ -55,19 +55,19 @@ curl “localhost:4000/candidates?fname=Thomas&lname=Yang”
 ```sh
 curl “localhost:4000/candidates?email=thomas.y2022@gmail.com”
 ```
-6. Create candidate with fname, lname and email (id will be generated automatically)
+5. Create candidate with fname, lname and email (id will be generated automatically)
 ```sh
 curl -v -X POST "localhost:4000/candidates" -H "Content-type:application/json" -d "{\"fname\": \"aaa\", \"lname\": \"bbb\", \"email\":\"aaa@gmail.com\"}"
 ```
-7. Create candidate with fname, lname, email and score (id will be generated automatically)
+6. Create candidate with fname, lname, email and score (id will be generated automatically)
 ```sh
 curl -v -X POST "localhost:4000/candidates" -H "Content-type:application/json" -d "{\"fname\": \"mmm\", \"lname\": \"nnn\", \"email\":\"mmm@gmail.com\", \"score\":80}"
 ```
-8. Update candidate with id
+7. Update candidate with id
 ```sh
 curl -v -X PUT "localhost:4000/candidates/4" -H "Content-type:application/json" -d "{\"fname\": \"xxx\", \"lname\": \"yyy\", \"email\":\"xxx@gmail.com\", \"score\":90}"
 ```
-9. Delete candidate with id
+8. Delete candidate with id
 ```sh
 curl -v -X DELETE "localhost:4000/candidates/4"
 ```
